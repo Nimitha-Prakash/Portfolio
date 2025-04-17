@@ -1,0 +1,541 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    z-index: 0;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, rgba(255, 168, 255, 0.5), rgba(135, 206, 250, 0.5));
+    background-size: 400% 400%;
+    animation: pageGradient 15s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(60px); /* Increased for smoother glow */
+    pointer-events: none;
+  }
+  @keyframes bodyGlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Header */
+ /* Header */
+.header {
+    background: linear-gradient(135deg, rgba(255, 168, 255, 0.7), rgba(135, 206, 250, 0.6));
+    animation: glowingEffect 5s ease-in-out infinite;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px); /* Slight blur for a glassy glow effect */
+  }
+  
+  /* Navbar inside Header */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+  
+  .nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  @keyframes glowingEffect {
+    0% {
+      background: linear-gradient(135deg, rgba(255, 168, 255, 0.7), rgba(135, 206, 250, 0.6));
+    }
+    50% {
+      background: linear-gradient(135deg, rgba(245, 179, 255, 0.5), rgba(109, 209, 255, 0.5));
+    }
+    100% {
+      background: linear-gradient(135deg, rgba(255, 168, 255, 0.7), rgba(135, 206, 250, 0.6));
+    }
+  }
+    
+  
+  /* Hero Section */
+/* Hero Section */
+/* Hero Section */
+/* Hero Section */
+/* Hero Section */
+#hero {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    position: relative; /* Ensure the background gradient and blur are applied properly */
+  }
+  
+  /* Left side with full photo */
+  #hero {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.hero-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: none; /* Remove the blur effect */
+    transition: none; /* Remove the transition effect */
+}
+
+.hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Remove the gradient overlay */
+    z-index: 1; /* Ensure the overlay is above the image */
+    opacity: 1; /* Set opacity to 1 */
+}
+
+/* Removed glowing effect and gradient animations */
+@keyframes glowingEffect {
+    0% {
+      background: transparent; /* Remove gradient background */
+    }
+    100% {
+      background: transparent; /* Remove gradient background */
+    }
+}
+  
+  .glass-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted layer */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .glass-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: none; /* remove existing blur */
+  }
+  
+  
+  .hero-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: blur(1px); /* Apply a blur effect */
+    transition: filter 0.3s ease-in-out; /* Smooth transition for blur on hover or change */
+  }
+  
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(245, 179, 255, 0.5), rgba(109, 209, 255, 0.5));
+    z-index: 1; /* Ensure gradient overlay is above the image */
+    opacity: 0.7;
+    animation: glowingEffect 3s ease-in-out infinite; /* Apply glowing gradient animation */
+  }
+  
+  .hero-left:hover img {
+    filter: blur(2px); /* Reduce blur when the user hovers over the image */
+  }
+  
+  /* Right side with intro text */
+  .hero-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem;
+    background: linear-gradient(135deg, rgba(255, 168, 255, 0.7), rgba(135, 206, 250, 0.6));
+    z-index: 2; /* Ensure text is above the background */
+    box-shadow: 0 10px 30px rgba(0, 21, 41, 0.2); /* Soft shadow for the right section */
+  }
+  
+  /* Typography */
+  .hero-right h1 {
+    font-size: 4rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C;
+     /* White color for better contrast */
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-100px);
+    animation: fallIn 1.5s ease-out forwards;
+  }
+  
+  .hero-right p {
+    font-size: 1.8rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C; /* Lighter text color for better contrast */
+    animation: slideIn 2s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+  }
+  
+  /* Glowing Gradient Animation */
+  /* @keyframes glowingEffect {
+    0% {
+      background: linear-gradient(45deg, rgba(245, 179, 255, 0.5), rgba(109, 209, 255, 0.5));
+    }
+    50% {
+      background: linear-gradient(45deg, rgba(255, 168, 255, 0.7), rgba(135, 206, 250, 0.6));
+    }
+    100% {
+      background: linear-gradient(45deg, rgba(245, 179, 255, 0.5), rgba(109, 209, 255, 0.5));
+    }
+  } */
+  
+  /* Animations */
+  @keyframes fallIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  /* Sections */
+  .section {
+    padding: 4rem 0;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C;
+  }
+  
+  /* Skills */
+  
+  ./* General styling for the section */
+#skills {
+    padding: 50px 0;
+    background-color: #f4f4f9;
+  }
+  
+  #skills h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .project-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color:#7d23e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .project-button:hover {
+    background-color:#9B7EBD;
+  }
+  
+  
+  /* Styling for the container */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Styling for the skills scroll container */
+  .skills-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  
+  /* Individual skill items */
+  .skill-item {
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    min-width: 150px; /* Adjust width if necessary */
+  }
+  
+  /* Hover effect for skill items */
+  .skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    .skills-scroll {
+      justify-content: flex-start;
+    }
+  
+    .skill-item {
+      font-size: 16px;
+      padding: 12px 20px;
+      min-width: 130px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #skills h2 {
+      font-size: 28px;
+    }
+  
+    .skills-scroll {
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .skill-item {
+      font-size: 14px;
+      padding: 10px 18px;
+      min-width: 120px;
+    }
+  }
+  
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .project-card h3 {
+    margin: 1rem 0 0.5rem;
+  }
+  .project-card p {
+    padding: 0 1rem 1rem;
+  }
+  
+  /* Contact & Footer */
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .contact-card {
+    width: 100%;
+    max-width: 550px;
+    padding: 24px;
+    border: 2px dashed #999;
+    border-radius: 16px;
+    background-color: #fff;
+    position: relative;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 transparent;
+  }
+  
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px dashed rgba(0, 123, 255, 0.2);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .contact-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+  }
+  
+  .contact-card:hover::before {
+    opacity: 1;
+  }
+  
+  .contact-card p {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .contact-card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+  }
+  .skills-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .skills-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .skills-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .skills-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .skill-item {
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
