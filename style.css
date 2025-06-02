@@ -226,15 +226,48 @@
     opacity: 0.7;
     animation: glowingEffect 3s ease-in-out infinite; /* Apply glowing gradient animation */
   }
-  
-  .hero-left:hover img {
-    filter: blur(2px); /* Reduce blur when the user hovers over the image */
+  .floating-blobs {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    z-index: 0;
   }
+  
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .blob.pink {
+    width: 100px;
+    height: 100px;
+    background:#A35C7A;
+    animation-delay: 1s;
+  }
+  
+  .blob.purple {
+    width: 150px;
+    height: 150px;
+    background:#C890A7 ;
+    animation-delay: 2s;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+  
+  /* .hero-left:hover img {
+    filter: blur(2px); /* Reduce blur when the user hovers over the image */
+  
   
   /* Right side with intro text */
   .hero-right {
     flex: 1;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     padding: 0 5rem;
@@ -242,6 +275,52 @@
     z-index: 2; /* Ensure text is above the background */
     box-shadow: 0 10px 30px rgba(0, 21, 41, 0.2); /* Soft shadow for the right section */
   }
+  .hero-right::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, #ffc1e3, #e3d6ff, #c8f0ff);
+    background-size: 300% 300%;
+    animation: glowBackground 10s ease infinite;
+    z-index: -1;
+    border-radius: 30px;
+    opacity: 0.3;
+  }
+  
+  @keyframes glowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .wave-animation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .wave-animation svg {
+    width: 200%;
+    height: 100%;
+    animation: cuteWave 6s ease-in-out infinite;
+  }
+  
+  @keyframes cuteWave {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    50% {
+      transform: translateX(-25%) translateY(-10px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+  
   
   /* Typography */
   .hero-right h1 {
@@ -300,7 +379,53 @@
     }
   }
   
-  
+ /* Education Timeline Style */
+.education-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.education-timeline {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  border-left: 3px solid #ddd;
+  position: relative;
+}
+
+.education-timeline li {
+  position: relative;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.education-timeline li::before {
+  content: "🎓";
+  position: absolute;
+  left: -0.95rem;
+  top: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  background-color: white;
+}
+
+.edu-year {
+  font-weight: 600;
+  color: #34495e;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.education-timeline p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
   
   
   
@@ -320,8 +445,8 @@
   
   /* Skills */
   
-  ./* General styling for the section */
-#skills {
+  /* General styling for the section */
+  #skills {
     padding: 50px 0;
     background-color: #f4f4f9;
   }
@@ -383,6 +508,7 @@
   .skill-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color:#9B7EBD;
   }
   
   /* Media query for responsiveness */
@@ -422,23 +548,61 @@
     gap: 2rem;
   }
   .project-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    text-align: center;
-  }
-  .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  .project-card h3 {
-    margin: 1rem 0 0.5rem;
-  }
-  .project-card p {
-    padding: 0 1rem 1rem;
-  }
+  perspective: 1000px;
+  height: 280px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-front h3 {
+  margin-top: 0.8rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  text-align: center;
+  background-color:#9B7EBD ;
+
+}
+
+.card-back p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  padding: 0 0.5rem;
+}
+
   
   /* Contact & Footer */
   .contact-container {
