@@ -443,25 +443,22 @@
     color: #4B164C;
   }
   
-  /* Skills */
-  
-  /* General styling for the section */
   #skills {
     padding: 50px 0;
-    background-color: #f4f4f9;
+    /* background-color: #f4f4f9; */
   }
   
   #skills h2 {
     text-align: center;
     font-size: 36px;
-    color: #333;
+    color:  #4B164C;
     margin-bottom: 20px;
   }
   .project-button {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
-    background-color:#7d23e3;
+    background-color:#e91e63;
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -508,7 +505,7 @@
   .skill-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background-color:#9B7EBD;
+    background-color:#C890A7;
   }
   
   /* Media query for responsiveness */
@@ -593,7 +590,7 @@
 .card-back {
   transform: rotateY(180deg);
   text-align: center;
-  background-color:#9B7EBD ;
+  background-color:#C890A7 ;
 
 }
 
@@ -605,64 +602,53 @@
 
   
   /* Contact & Footer */
-  .contact-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-  }
-  
-  .contact-card {
-    width: 100%;
-    max-width: 550px;
-    padding: 24px;
-    border: 2px dashed #999;
-    border-radius: 16px;
-    background-color: #fff;
-    position: relative;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 0 transparent;
-  }
-  
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border: 2px dashed rgba(0, 123, 255, 0.2);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .contact-card:hover {
-    border-color: #007bff;
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
-  }
-  
-  .contact-card:hover::before {
-    opacity: 1;
-  }
-  
-  .contact-card p {
-    margin: 12px 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .contact-card a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .contact-card a:hover {
-    text-decoration: underline;
-  }
-  
+.contact-section {
+  background: #fff6fb;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #ffc1e3;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #4B164C;
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 2.2;
+  color: #333;
+  text-align: left;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list a {
+  color: #e91e63;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
   .footer {
     background: #f1f1f1;
     text-align: center;
